@@ -13,6 +13,7 @@ jobs: # 하나의 job은 여러 개의 step으로 구성됨
         run: echo "Hello, world!" # Hello, world! 출력
 
 # name: CI / CD 예제
+#출력
 
 # on:
 #   push:
