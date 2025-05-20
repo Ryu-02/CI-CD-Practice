@@ -4,30 +4,50 @@ on:
     branches:
       - main # main 브랜치에 푸시될 때
 
-jobs: # 하나의 job은 여러 개의 step으로 구성됨
+jobs:
   My-first-job:
-    runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Hello world
-        run: echo "Hello, world!" # Hello, world! 출력
+      - name: 첫 번째 메시지 출력
+        run: echo "Hello, world!"
 
-# name: CI / CD 예제
+      - name: 두 번째 메시지 출력
+        run: echo "This is the second step."
+
+      - name: 세 번째 메시지 출력
+        run: echo "CI/CD 테스트 중입니다."
+
+      - name: 네 번째 메시지 출력
+        run: echo "모든 스텝이 정상 작동 중!"
+# name: NestJS CI 테스트
 
 # on:
 #   push:
 #     branches:
-#       - main  # main 브랜치에 푸시될 때
+#       - main
+#   pull_request:
+#     branches:
+#       - main
 
-# jobs: # 하나의 job은 여러 개의 step으로 구성됨
-#   Deploy:
-#     runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
 #     steps:
-#       - name: Checkout code
-#         uses: appleboy/ssh-action@v1.0.3
+#       - name: 저장소 코드 체크아웃
+#         uses: actions/checkout@v3
 
-#       - name: Build and Deploy
-#         run: |
-#           echo "코드 빌드 및 배포 작업 수행"
-#           # 여기에 실제 빌드 및 배포 명령어를 추가하세요.
+#       - name: Node.js 세팅 (v18)
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 18
+
+#       - name: 의존성 설치
+#         run: npm install
+
+#       - name: NestJS 빌드
+#         run: npm run build
+
+#       - name: 테스트 실행
+#         run: npm run test -- --watch=false --bail
